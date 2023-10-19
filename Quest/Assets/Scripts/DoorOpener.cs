@@ -5,29 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpener : MonoBehaviour
 {
-    public GameObject player;
-    public Vector3 pos;
-    public int sceneName;
+    public KeyCode key;
+    public int sceneIndex;
     public int i = 0;
-    public int j = 0;
 
     public int OnTriggerEnter(Collider other)
     {
-        return i = 1;
+        if (other.gameObject.tag == "Player")
+        {
+            return i = 1000;
+        }
+        else return i = 0;
     }
 
     public int OnTriggerExit(Collider other)
     {
-        return i = 0;
+        if (other.gameObject.tag == "Player")
+        {
+            return i = 0;
+        }
+        else return i = 0;
     }
 
     public void OnMouseOver()
     {
-        if (Input.GetKeyDown(KeyCode.E) && i > 0)
+        if (Input.GetKeyDown(key) && i == 1000)
         {
-            DontDestroyOnLoad(player);
-            SceneManager.LoadSceneAsync(sceneName);
-            player.transform.position = pos;
+            SceneManager.LoadScene(sceneIndex);
         }
     }
 }
