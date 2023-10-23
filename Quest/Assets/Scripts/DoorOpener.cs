@@ -18,6 +18,15 @@ public class DoorOpener : MonoBehaviour
         else return i = 0;
     }
 
+    public int OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            return i = 1000;
+        }
+        else return i = 0;
+    }
+
     public int OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -29,8 +38,9 @@ public class DoorOpener : MonoBehaviour
 
     public void OnMouseOver()
     {
-        if (Input.GetKeyDown(key) && i == 1000)
+        if (Input.GetKey(key) && i == 1000)
         {
+            Debug.Log("Смена сцены...");
             SceneManager.LoadScene(sceneIndex);
         }
     }

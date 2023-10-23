@@ -7,55 +7,32 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 35.0f;
     private CharacterController controller;
-    public string sceneName;
-    private Scene scene;
+    private static GameObject instance;
 
-    private string Awake()
+    public void Awake()
     {
+        Debug.Log("ֲûחמג Awake");
         DontDestroyOnLoad(gameObject);
-        scene = SceneManager.GetActiveScene();
-        sceneName = SceneManager.GetActiveScene().name;
-        return sceneName;
-    }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Awake();
-        
-        switch (sceneName)
+        if (instance == null)
         {
-            case "cabinet":
-                transform.position = new Vector3(-57, 19, -164);
-                break;
-
-            case "floor":
-                transform.position = new Vector3(-47, 19, -164);
-                break;
-
-            case "stairs-right":
-                transform.position = new Vector3(32, 12, -339);
-                break;
+            instance = gameObject;
         }
+        else Destroy(gameObject);
+
+        
     }
 
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+    
 
-    private void Start()
+    public void Start()
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void Update()
+    public void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
