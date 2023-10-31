@@ -5,44 +5,64 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpener : MonoBehaviour
 {
-    public Animator animator;
     public KeyCode key;
     public int sceneIndex;
-    public int i = 0;
+    public bool ColliderHit = false;
+    public bool All = false;
 
-    public int OnTriggerEnter(Collider other)
+    public bool OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            return i = 1000;
+            return ColliderHit = true;
         }
-        else return i = 0;
+        else return ColliderHit = false;
     }
 
-    public int OnTriggerStay(Collider other)
+    public bool OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            return i = 1000;
+            return ColliderHit = true;
         }
-        else return i = 0;
+        else return ColliderHit = false;
     }
 
-    public int OnTriggerExit(Collider other)
+    public bool OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            return i = 0;
+            return ColliderHit = false;
         }
-        else return i = 0;
+        else return ColliderHit = false;
     }
 
-    public void OnMouseOver()
+    public bool OnMouseOver()
     {
-        if (Input.GetKey(key) && i == 1000)
+        if (Input.GetKey(key) && ColliderHit == true)
+        {
+            return All = true;
+        }
+        else return All = false;
+    }
+
+    public void LoadNextScene()
+    {
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void Update()
+    {
+        if (All == true)
         {
             Debug.Log("Смена сцены...");
-            SceneManager.LoadScene(sceneIndex);
+            LoadNextScene();
         }
     }
 }

@@ -18,9 +18,7 @@ public class PlayerController : MonoBehaviour
         {
             instance = gameObject;
         }
-        else Destroy(gameObject);
-
-        
+        else Destroy(gameObject);        
     }
 
     public void Start()
