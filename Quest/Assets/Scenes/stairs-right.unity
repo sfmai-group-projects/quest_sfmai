@@ -59257,7 +59257,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-17240
+  m_Name: pb_Mesh-6388
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -85931,7 +85931,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh53456
+  m_Name: pb_Mesh40224
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -106531,10 +106531,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 4163964772815334702, guid: 87844a63759de0c47a4d7a1c542bcd0a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7410594657610020346, guid: 87844a63759de0c47a4d7a1c542bcd0a, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1183251448}
+    - target: {fileID: 7410594657610020346, guid: 87844a63759de0c47a4d7a1c542bcd0a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7798501140518331320, guid: 87844a63759de0c47a4d7a1c542bcd0a, type: 3}
       propertyPath: m_Mesh
       value: 

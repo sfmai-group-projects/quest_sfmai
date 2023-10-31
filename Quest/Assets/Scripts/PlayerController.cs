@@ -23,8 +23,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    
-
     public void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -43,22 +41,25 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftControl))
         {
-            moveSpeed = 20f;
-            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(11, 5, Time.time), Mathf.Lerp(9, 9, Time.time));
+            moveSpeed = 17f;
+            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(10, 5, Time.time), Mathf.Lerp(9, 9, Time.time));
         }
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        else
         {
             moveSpeed = 35f;
-            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(5, 11, Time.time), Mathf.Lerp(9, 9, Time.time));
+            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(9, 9, Time.time));
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 50f;
         }
-        else moveSpeed = 35f;
+        else
+        {
+            moveSpeed = 35f;
+        }
     }
 }
 

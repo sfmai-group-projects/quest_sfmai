@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stairs-left.unity
     guid: 088797cdf03de7d439767dad5ca0201b
+  - enabled: 1
+    path: Assets/Scenes/308.unity
+    guid: 16f37cbee00ba894eb560fbd16e0c340
   m_configObjects: {}

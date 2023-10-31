@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DoorOpener : MonoBehaviour
 {
+    public Animator animator;
     public KeyCode key;
     public int sceneIndex;
     public int i = 0;
