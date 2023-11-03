@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81a71c92bd0ebf479dd95ae12726ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 823138612}
+  door207: {fileID: 823138612}
+  doorstairsright: {fileID: 0}
   Fader: {fileID: 2129231037}
 --- !u!95 &16107036
 Animator:
@@ -751,7 +752,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh280852
+  m_Name: pb_Mesh151052
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1090,7 +1091,7 @@ GameObject:
   - component: {fileID: 823138615}
   - component: {fileID: 823138614}
   m_Layer: 0
-  m_Name: door (10)
+  m_Name: door207
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2325,7 +2326,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh119592
+  m_Name: pb_Mesh151032
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Animate : MonoBehaviour
 {
     private Animator animator;
-    public GameObject door;
+    public GameObject door207;
+    public GameObject doorstairsright;
     public GameObject Fader;
 
     public void Start()
@@ -16,7 +17,12 @@ public class Animate : MonoBehaviour
     [SerializeField]
     public void Update()
     {
-        if (door.GetComponent<DoorOpener>().All == true)
+        if (door207.GetComponent<DoorOpener>().All == true)
+        {
+            animator.enabled = true;
+        }
+
+        if (doorstairsright.GetComponent<DoorOpener>().All == true)
         {
             animator.enabled = true;
         }
