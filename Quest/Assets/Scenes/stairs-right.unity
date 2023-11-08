@@ -1325,7 +1325,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh219452
+  m_Name: pb_Mesh787054
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5255,8 +5255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81a71c92bd0ebf479dd95ae12726ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door207: {fileID: 1859275069}
-  doorstairsright: {fileID: 0}
   Fader: {fileID: 1595586547}
 --- !u!95 &120902239
 Animator:
@@ -33890,7 +33888,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh53694
+  m_Name: pb_Mesh786030
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -34906,7 +34904,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh55060
+  m_Name: pb_Mesh787436
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38282,7 +38280,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh52388
+  m_Name: pb_Mesh784720
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -43002,7 +43000,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh155674
+  m_Name: pb_Mesh785902
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -101604,8 +101602,8 @@ GameObject:
   - component: {fileID: 1859275072}
   - component: {fileID: 1859275071}
   m_Layer: 0
-  m_Name: doorstairsright
-  m_TagString: Untagged
+  m_Name: _collider
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

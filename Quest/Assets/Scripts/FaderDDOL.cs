@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class FaderDDOL : MonoBehaviour
 {
-    private GameObject instance;
+    private static GameObject instance;
 
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
+        if (instance == null)
+        {
+            instance = gameObject;
+        }
+        else Destroy(gameObject);
     }
 }

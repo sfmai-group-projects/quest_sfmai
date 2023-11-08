@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Animate : MonoBehaviour
 {
     private Animator animator;
-    public GameObject door207;
-    public GameObject doorstairsright;
     public GameObject Fader;
+    public GameObject[] doors;
 
     public void Start()
     {
@@ -15,22 +15,20 @@ public class Animate : MonoBehaviour
     }
 
     [SerializeField]
-    public void Update()
+    public void FixedUpdate()
     {
-        if (door207.GetComponent<DoorOpener>().All == true)
+        doors = GameObject.FindGameObjectsWithTag("Door");
+        for (int i = 0; ; i++)
         {
-            animator.enabled = true;
-        }
-
-        if (doorstairsright.GetComponent<DoorOpener>().All == true)
-        {
-            animator.enabled = true;
+            if (doors[i].GetComponent<DoorOpener>().All == true)
+            {
+                animator.enabled = true;
+            }
         }
     }
 
     public void AnimatorDisable()
     {
         animator.enabled = false;
-        Destroy(Fader.gameObject);
     }
 }

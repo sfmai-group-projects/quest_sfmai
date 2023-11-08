@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Camera
+  - Door
+  - Door1
   layers:
   - Default
   - TransparentFX
