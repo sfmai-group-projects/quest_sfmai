@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 35.0f;
     private CharacterController controller;
     private static GameObject instance;
+    public GameObject[] items = new GameObject[6];
+    public KeyCode key;
+    public GameObject inventory;
+    public bool InventoryIsActive;
 
     public void Awake()
     {
@@ -39,24 +43,40 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
+        // Приседание и бег
+
         if (Input.GetKey(KeyCode.LeftControl))
         {
             moveSpeed = 17f;
-            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(10, 5, Time.time), Mathf.Lerp(9, 9, Time.time));
+            transform.localScale = new Vector3(Mathf.Lerp(7, 7, Time.time), Mathf.Lerp(10, 5, Time.time), Mathf.Lerp(7, 7, Time.time));
         }
         else
         {
             moveSpeed = 35f;
-            transform.localScale = new Vector3(Mathf.Lerp(9, 9, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(9, 9, Time.time));
+            transform.localScale = new Vector3(Mathf.Lerp(7, 7, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(7, 7, Time.time));
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            transform.localScale = new Vector3(Mathf.Lerp(7, 7, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(7, 7, Time.time));
             moveSpeed = 50f;
         }
         else
         {
             moveSpeed = 35f;
+        }
+
+        // Инвентарь
+
+        if (Input.GetKeyDown(key) && InventoryIsActive == false)
+        {
+            inventory.SetActive(true);
+            InventoryIsActive = true;
+        }
+        else if (Input.GetKeyDown(key) && InventoryIsActive == true)
+        {
+            inventory.SetActive(false);
+            InventoryIsActive = false;
         }
     }
 }

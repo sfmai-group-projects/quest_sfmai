@@ -359,7 +359,10 @@
 "Assets/Scripts/CameraShake.cs"
 "Assets/Scripts/DoorOpener.cs"
 "Assets/Scripts/FaderDDOL.cs"
+"Assets/Scripts/Inventory.cs"
+"Assets/Scripts/ItemDelete.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/Scriptable.cs"
 "Assets/Scripts/Teleport2.cs"
 "Assets/Scripts/Teleporter.cs"
 -langversion:9.0
