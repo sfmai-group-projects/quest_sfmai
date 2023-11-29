@@ -8,10 +8,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 35.0f;
     private CharacterController controller;
     private static GameObject instance;
-    public GameObject[] items = new GameObject[6];
-    public KeyCode key;
-    public GameObject inventory;
-    public bool InventoryIsActive;
+    public GameObject flashlight;
+    public bool lightisactive;
 
     public void Awake()
     {
@@ -32,8 +30,24 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public bool FlashlightActivator()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && lightisactive == false)
+        {
+            return lightisactive = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F) && lightisactive == true)
+        {
+            return lightisactive = false;
+        }
+        return lightisactive;
+    }
+
     public void Update()
     {
+        FlashlightActivator();
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         
@@ -43,7 +57,7 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Приседание и бег
+        // Приседание
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -56,6 +70,8 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Lerp(7, 7, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(7, 7, Time.time));
         }
 
+        // Бег
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             transform.localScale = new Vector3(Mathf.Lerp(7, 7, Time.time), Mathf.Lerp(10, 10, Time.time), Mathf.Lerp(7, 7, Time.time));
@@ -66,17 +82,15 @@ public class PlayerController : MonoBehaviour
             moveSpeed = 35f;
         }
 
-        // Инвентарь
+        // Фонарик
 
-        if (Input.GetKeyDown(key) && InventoryIsActive == false)
+        if (lightisactive == true)
         {
-            inventory.SetActive(true);
-            InventoryIsActive = true;
+            flashlight.SetActive(true);
         }
-        else if (Input.GetKeyDown(key) && InventoryIsActive == true)
+        else
         {
-            inventory.SetActive(false);
-            InventoryIsActive = false;
+            flashlight.SetActive(false);
         }
     }
 }

@@ -7,6 +7,7 @@ public class DoorOpener : MonoBehaviour
 {
     public KeyCode key;
     public int sceneIndex;
+    public AudioSource open;
     public bool ColliderHit = false;
     public bool All = false;
 
@@ -39,7 +40,7 @@ public class DoorOpener : MonoBehaviour
 
     public bool OnMouseOver()
     {
-        if (Input.GetKey(key) && ColliderHit == true)
+        if (Input.GetKeyDown(key) && ColliderHit == true)
         {
             return All = true;
         }
@@ -61,6 +62,7 @@ public class DoorOpener : MonoBehaviour
     {
         if (All == true)
         {
+            open.Play();
             Debug.Log("Смена сцены...");
             LoadNextScene();
         }

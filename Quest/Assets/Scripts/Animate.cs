@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Animate : MonoBehaviour
 {
@@ -14,10 +15,27 @@ public class Animate : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    [SerializeField]
-    public void FixedUpdate()
+    private void OnEnable()
     {
-        doors = GameObject.FindGameObjectsWithTag("Door");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        for (int i = 0; i <= 5; i++)
+        {
+            doors = GameObject.FindGameObjectsWithTag("Door");
+        }
+    }
+
+    [SerializeField]
+    public void Update()
+    {
         for (int i = 0; ; i++)
         {
             if (doors[i].GetComponent<DoorOpener>().All == true)
