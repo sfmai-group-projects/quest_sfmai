@@ -8,7 +8,6 @@ public class PrikolistDisable : MonoBehaviour
     private static GameObject instance;
     public bool ColliderHit;
 
-
     public void Awake()
     {
         DontDestroyOnLoad(prikolist);
@@ -19,7 +18,6 @@ public class PrikolistDisable : MonoBehaviour
         }
         else Destroy(prikolist);
     }
-
 
     public void OnTriggerEnter(Collider other)
     {

@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Inventory
+public class Inventory : MonoBehaviour
 {
-    public static bool Key308Taken;
+    public KeyCode key;
+    GameObject[] items = new GameObject[10];
 
-    public static bool KeyStairsTaken;
+    void InventoryOpen()
+    {
+        if (Input.GetKey(key))
+        {
+            gameObject.SetActive(true);
+        }
+    }
 }

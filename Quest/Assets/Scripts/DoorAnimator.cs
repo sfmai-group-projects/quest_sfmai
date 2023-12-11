@@ -16,7 +16,7 @@ public class DoorAnimator : MonoBehaviour
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        DoorKey = GameObject.FindGameObjectWithTag("Key");
+        animator = GetComponent<Animator>();
     }
 
 
@@ -49,6 +49,7 @@ public class DoorAnimator : MonoBehaviour
         else return ColliderHit = false;
     }
 
+
     public bool OnMouseOver()
     {
         if (Input.GetKey(key) && ColliderHit == true)
@@ -59,9 +60,10 @@ public class DoorAnimator : MonoBehaviour
     }
 
 
-    public void FixedUpdate()
+    [SerializeField]
+    public void Update()
     {
-        if (all == true && Inventory.Key308Taken == true)
+        if (all == true && DoorKey.GetComponent<ObjectTaker>().All == true)
         {
             open.Play();
             player.transform.position = pos;
