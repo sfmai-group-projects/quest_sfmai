@@ -11,6 +11,7 @@ public class DoorOpener : MonoBehaviour
     public bool ColliderHit = false;
     public bool All = false;
 
+
     public bool OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -19,6 +20,7 @@ public class DoorOpener : MonoBehaviour
         }
         else return ColliderHit = false;
     }
+
 
     public bool OnTriggerStay(Collider other)
     {
@@ -29,6 +31,7 @@ public class DoorOpener : MonoBehaviour
         else return ColliderHit = false;
     }
 
+
     public bool OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -37,6 +40,7 @@ public class DoorOpener : MonoBehaviour
         }
         else return ColliderHit = false;
     }
+
 
     public bool OnMouseOver()
     {
@@ -47,23 +51,25 @@ public class DoorOpener : MonoBehaviour
         else return All = false;
     }
 
+
     public void LoadNextScene()
     {
         StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadScene()
+
+    public IEnumerator LoadScene()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.77f);
         SceneManager.LoadScene(sceneIndex);
     }
+
 
     public void Update()
     {
         if (All == true)
         {
             open.Play();
-            Debug.Log("Смена сцены...");
             LoadNextScene();
         }
     }

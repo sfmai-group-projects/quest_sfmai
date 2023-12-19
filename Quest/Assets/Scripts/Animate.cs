@@ -15,15 +15,18 @@ public class Animate : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -33,17 +36,24 @@ public class Animate : MonoBehaviour
         }
     }
 
+
     [SerializeField]
     public void Update()
     {
-        for (int i = 0; ; i++)
+        for (int i = 0; i < doors.Length; i++)
         {
             if (doors[i].GetComponent<DoorOpener>().All == true)
             {
                 animator.enabled = true;
             }
         }
+
+        if (DoorStairs.All == true)
+        {
+            animator.enabled = true;
+        }
     }
+
 
     public void AnimatorDisable()
     {

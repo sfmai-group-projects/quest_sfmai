@@ -5,18 +5,16 @@ using UnityEngine;
 public class DoorAnimator : MonoBehaviour
 {
     public KeyCode key;
-    private Animator animator;
+    public Animator animator;
     public GameObject player;
-    public GameObject DoorKey;
+    public GameObject door308;
     public AudioSource open;
-    public Vector3 pos;
     public bool ColliderHit = false;
     public bool all = false;
 
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        animator = GetComponent<Animator>();
     }
 
 
@@ -49,7 +47,6 @@ public class DoorAnimator : MonoBehaviour
         else return ColliderHit = false;
     }
 
-
     public bool OnMouseOver()
     {
         if (Input.GetKey(key) && ColliderHit == true)
@@ -60,14 +57,18 @@ public class DoorAnimator : MonoBehaviour
     }
 
 
-    [SerializeField]
     public void Update()
     {
-        if (all == true && DoorKey.GetComponent<ObjectTaker>().All == true)
+        if (Inventory.Key308Taken == true)
+        {
+            Destroy(door308.GetComponent<DoorLocker>());
+        }
+
+        if (all == true && Inventory.Key308Taken == true)
         {
             open.Play();
-            player.transform.position = pos;
-            all = false;
+            animator.enabled = true;
+            Destroy(this);
         }
     }
 }

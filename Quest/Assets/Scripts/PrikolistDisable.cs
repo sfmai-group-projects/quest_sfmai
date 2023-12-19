@@ -7,23 +7,43 @@ public class PrikolistDisable : MonoBehaviour
     public GameObject prikolist;
     private static GameObject instance;
     public bool ColliderHit;
+    public Vector3 newpos;
+    public bool Move = false;
+
 
     public void Awake()
     {
-        DontDestroyOnLoad(prikolist);
-
-        if (instance == null)
+        if (Inventory.PrikolistMove == true)
         {
-            instance = prikolist;
+            Destroy(prikolist);
         }
-        else Destroy(prikolist);
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            prikolist.SetActive(false);
+            Move = true;
+        }
+    }
+
+
+    public IEnumerator DisablePrikolist()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(prikolist);
+        Inventory.PrikolistMove = true;
+        Move = false;
+    }
+
+
+    public void Update()
+    {
+        if (Move == true)
+        {
+            prikolist.transform.position = Vector3.Lerp(prikolist.transform.position, newpos, Time.deltaTime * 3f);
+            StartCoroutine(DisablePrikolist());
         }
     }
 }

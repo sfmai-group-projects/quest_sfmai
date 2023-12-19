@@ -8,6 +8,10 @@ TagManager:
   - Door
   - Message
   - Audio
+  - Key
+  - Key308
+  - KeyStairs
+  - DoorStairs
   layers:
   - Default
   - TransparentFX

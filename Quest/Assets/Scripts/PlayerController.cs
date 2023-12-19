@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Log("ֲûחמג Awake");
         DontDestroyOnLoad(gameObject);
 
         if (instance == null)
